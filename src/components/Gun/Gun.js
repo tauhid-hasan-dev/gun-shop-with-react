@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Modal from '../Modal/Modal';
 
 const Gun = (props) => {
-    const {name, img, bullet, action, price, capacity} = props.gun;
-    const {addToCart} = props;
-    console.log(addToCart);
+    const [modalData, setModalData] = useState({})
+    //console.log(modalData)
+    const {gun, addToCart} = props
+    const {name, img, bullet, action, price, capacity} = gun;
+    //console.log(addToCart);
     /* console.log(name, img, bullet, action, price, capacity); */
     return (
         <div>
@@ -21,8 +24,11 @@ const Gun = (props) => {
                     </div>
                     <div className='justify-between flex mt-3'>
                         <button className="btn btn-sm btn-outline w-[48%]" onClick={()=>addToCart()}>Add to cart</button>
-                        <button className="btn btn-sm btn-outline w-[48%]">Details</button>
+                        <label onClick={()=>setModalData(gun)} htmlFor='my-modal-3' className="btn btn-sm btn-outline w-[48%] modal-button">Details</label>
                     </div>
+                   {
+                    modalData &&  <Modal modalData = {modalData} setModalData={setModalData}></Modal>
+                   }
                 </div>
             </div>
         </div>

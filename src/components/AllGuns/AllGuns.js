@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react';
 import Gun from '../Gun/Gun';
 
 const AllGuns = ({addToCart}) => {
-    /* console.log(addToCart) */
-    //setting state 
     const [allguns, setAllguns] = useState([]);
    
     //function for fetching data 
